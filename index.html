@@ -6,767 +6,273 @@
 <title>StoryInvites: Who we are, what we do, what we change</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
-
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
-:root {
-  --wine: #2b1119;
-  --paper: #f7ece7;
-  --paper-2: #efdcd5;
-  --ink: #2b1119;
-  --muted: #6d5058;
-  --gold: #c9a66b;
-  --gold-d: #8a6528;
-  --gold-light: rgba(201, 166, 107, 0.15);
-  --serif: "Cormorant Garamond", Georgia, serif;
-  --sans: "Jost", "Helvetica Neue", Arial, sans-serif;
-  box-sizing: border-box;
-  padding-top: env(safe-area-inset-top, 0px);
-  padding-bottom: env(safe-area-inset-bottom, 0px);
+:root{
+  --wine:#2b1119; --paper:#f7ece7; --paper-2:#efdcd5; --ink:#2b1119; --muted:#6d5058; --gold:#c9a66b; --gold-d:#8a6528;
+  --serif:"Cormorant Garamond",Georgia,serif; --sans:"Jost","Helvetica Neue",Arial,sans-serif;
+  box-sizing:border-box; padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
 }
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--paper:#1f0d14;--paper-2:#2a131c;--ink:#f7ece7;--muted:#c9aeb0;--gold-d:#c9a66b}}
+:root[data-theme="dark"]{--paper:#1f0d14;--paper-2:#2a131c;--ink:#f7ece7;--muted:#c9aeb0;--gold-d:#c9a66b}
+html{scroll-snap-type:y mandatory;scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font:300 clamp(17px,2vw,20px)/1.55 var(--sans)}
+#bar{position:fixed;left:0;top:0;height:4px;width:0;background:var(--gold);z-index:100;transition:width .1s linear}
+#count{position:fixed;right:18px;bottom:calc(14px + env(safe-area-inset-bottom,0px));z-index:100;font-size:.8rem;padding:4px 10px;background:var(--wine);color:#f7ece7;border-radius:20px}
+.s{min-height:100svh;scroll-snap-align:start;scroll-snap-stop:always;display:flex;flex-direction:column;justify-content:center;padding:56px 24px}
+.s>div{max-width:1100px;width:100%;margin:0 auto}
+.d{background:var(--wine);color:#f7ece7}
+.d .sub,.d li{color:#e9d6d1}
+.a{background:var(--paper-2)}
 
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
-    --paper: #1f0d14;
-    --paper-2: #2a131c;
-    --ink: #f7ece7;
-    --muted: #c9aeb0;
-    --gold-d: #c9a66b;
-  }
-}
-:root[data-theme="dark"] {
-  --paper: #1f0d14;
-  --paper-2: #2a131c;
-  --ink: #f7ece7;
-  --muted: #c9aeb0;
-  --gold-d: #c9a66b;
-}
+/* Title and Logo Header */
+.hero-title-wrap{display:inline-flex;align-items:center;gap:14px;flex-wrap:wrap;margin-bottom:.3em}
+h1{font-family:var(--serif);font-weight:500;line-height:1.05;margin:0;font-size:clamp(2.4rem,7vw,4.8rem)}
+.hero-logo{height:clamp(38px,6.5vw,68px);width:auto;object-fit:contain;vertical-align:middle}
 
-html {
-  scroll-snap-type: y mandatory;
-  scroll-behavior: smooth;
-  height: 100%;
-}
+h2{font-family:var(--serif);font-weight:500;line-height:1.08;margin:0 0 .45em;font-size:clamp(2rem,5vw,3.4rem);max-width:18ch}
+h3{font-family:var(--sans);font-weight:500;font-size:1.05rem;margin:0 0 .25em}
+p{margin:0 0 .9em;max-width:34em}
+.tag{font-family:var(--serif);font-size:clamp(1.5rem,3.5vw,2.1rem);font-weight:600;color:var(--gold-d);margin:0 0 20px;line-height:1.1}
+.tag::after{content:"";display:block;width:50px;height:3px;background:var(--gold);margin-top:10px}
+.d .tag{color:var(--gold)}
+.sub{color:var(--muted)}
 
-*, *::before, *::after {
-  box-sizing: border-box;
-}
+.row{display:grid;gap:22px;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));margin-top:24px}
+.row>div{border-top:2px solid var(--gold);padding-top:12px}
+.row p{margin:0;font-size:.92em}
+.two{display:grid;gap:30px;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));margin-top:24px}
+.two h3{font-family:var(--serif);font-size:1.8rem;font-weight:500}
+.two ul{margin:0;padding-left:1.1em}.two li{margin-bottom:.4em}
+.price{font-family:var(--serif);font-size:3.4rem;line-height:1;margin:.1em 0 .1em}
+.box{border:1px solid var(--gold);padding:24px}
+.box ul{margin:12px 0 0;padding-left:1.1em}.box li{margin-bottom:.3em}
 
-body {
-  margin: 0;
-  background: var(--paper);
-  color: var(--ink);
-  font: 300 clamp(16px, 1.8vw, 20px)/1.55 var(--sans);
-  overflow-x: hidden;
-  height: 100%;
-}
+/* See It First Layout */
+.see-layout{display:grid;grid-template-columns:1fr 340px;gap:32px;align-items:center}
+@media (max-width:860px){.see-layout{grid-template-columns:1fr;justify-items:center;gap:24px}}
 
-#bar {
-  position: fixed;
-  left: 0;
-  top: 0;
-  height: 4px;
-  width: 0%;
-  background: var(--gold);
-  z-index: 100;
-  transition: width 0.1s ease-out;
-}
+.sample-btns{display:flex;flex-direction:column;gap:12px;margin-top:20px;max-width:340px}
+.sample-btn{display:flex;align-items:center;justify-content:space-between;padding:12px 18px;border:1px solid var(--gold);background:transparent;color:inherit;font-family:var(--sans);font-size:.95rem;font-weight:500;cursor:pointer;text-align:left;transition:all .2s ease}
+.sample-btn:hover,.sample-btn.active{background:var(--gold);color:var(--wine)}
+.sample-btn span.badge{font-size:.75rem;padding:2px 8px;border:1px solid currentColor;border-radius:12px;opacity:.8}
 
-#brand-header {
-  position: fixed;
-  top: 18px;
-  left: 24px;
-  z-index: 90;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
+/* iPhone 16 Pro Max Mockup */
+.iphone-frame{position:relative;width:300px;height:610px;max-height:calc(100svh - 130px);aspect-ratio:440/956;background:#0d0d0f;border-radius:48px;padding:10px;box-shadow:0 20px 40px rgba(0,0,0,.35),0 0 0 2px #433d3c,0 0 0 5px #1d1b1a;display:flex;flex-direction:column;overflow:hidden;margin:0 auto}
+.iphone-screen{position:relative;width:100%;height:100%;background:#000;border-radius:38px;overflow:hidden}
+.iphone-island{position:absolute;top:10px;left:50%;transform:translateX(-50%);width:92px;height:24px;background:#000;border-radius:20px;z-index:20;pointer-events:none}
+.iphone-iframe{width:100%;height:100%;border:none;background:#fff;border-radius:38px}
 
-.header-logo {
-  height: 38px;
-  width: auto;
-  object-fit: contain;
-  display: block;
-}
+.ext-link{display:inline-flex;align-items:center;gap:6px;margin-top:14px;color:var(--gold-d);text-decoration:none;font-size:.9rem;font-weight:500}
+.ext-link:hover{text-decoration:underline}
 
-#count {
-  position: fixed;
-  right: 24px;
-  bottom: calc(18px + env(safe-area-inset-bottom, 0px));
-  z-index: 90;
-  font-size: 0.8rem;
-  font-weight: 500;
-  padding: 6px 14px;
-  background: var(--wine);
-  color: #f7ece7;
-  border: 1px solid var(--gold);
-  border-radius: 20px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-  letter-spacing: 1px;
-}
-
-.s {
-  min-height: 100vh;
-  min-height: 100svh;
-  height: 100vh;
-  height: 100svh;
-  scroll-snap-align: start;
-  scroll-snap-stop: always;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 68px 24px 40px;
-  position: relative;
-  overflow: hidden;
-}
-
-.s > div {
-  max-width: 1080px;
-  width: 100%;
-  margin: 0 auto;
-}
-
-.d {
-  background: var(--wine);
-  color: #f7ece7;
-}
-
-.d .sub, .d li {
-  color: #e9d6d1;
-}
-
-.a {
-  background: var(--paper-2);
-}
-
-h1, h2 {
-  font-family: var(--serif);
-  font-weight: 500;
-  line-height: 1.08;
-  margin: 0 0 0.45em;
-}
-
-h1 {
-  font-size: clamp(3rem, 9vw, 6rem);
-}
-
-h2 {
-  font-size: clamp(2rem, 5.2vw, 3.6rem);
-  max-width: 20ch;
-}
-
-h3 {
-  font-family: var(--sans);
-  font-weight: 500;
-  font-size: 1.05rem;
-  margin: 0 0 0.25em;
-}
-
-p {
-  margin: 0 0 0.9em;
-  max-width: 34em;
-}
-
-.tag {
-  font-family: var(--serif);
-  font-size: clamp(1.5rem, 3.5vw, 2.2rem);
-  font-weight: 600;
-  color: var(--gold-d);
-  margin: 0 0 20px;
-  line-height: 1.1;
-}
-
-.tag::after {
-  content: "";
-  display: block;
-  width: 56px;
-  height: 3px;
-  background: var(--gold);
-  margin-top: 10px;
-}
-
-.d .tag {
-  color: var(--gold);
-}
-
-.sub {
-  color: var(--muted);
-}
-
-.row {
-  display: grid;
-  gap: 22px;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  margin-top: 24px;
-}
-
-.row > div {
-  border-top: 2px solid var(--gold);
-  padding-top: 14px;
-}
-
-.row p {
-  margin: 0;
-  font-size: 0.92em;
-}
-
-.two {
-  display: grid;
-  gap: 28px;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  margin-top: 24px;
-}
-
-.two h3 {
-  font-family: var(--serif);
-  font-size: 1.8rem;
-  font-weight: 500;
-}
-
-.two ul {
-  margin: 0;
-  padding-left: 1.1em;
-}
-
-.two li {
-  margin-bottom: 0.4em;
-}
-
-.price {
-  font-family: var(--serif);
-  font-size: 3.4rem;
-  line-height: 1;
-  margin: 0.1em 0;
-}
-
-.box {
-  border: 1px solid var(--gold);
-  padding: 24px;
-  border-radius: 4px;
-  background: rgba(255, 255, 255, 0.2);
-}
-
-.box ul {
-  margin: 14px 0 0;
-  padding-left: 1.1em;
-}
-
-.box li {
-  margin-bottom: 0.35em;
-}
-
-.links {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin-top: 20px;
-}
-
-.btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 11px 22px;
-  border: 1px solid var(--gold);
-  background: var(--gold);
-  color: var(--wine);
-  text-decoration: none;
-  font-weight: 500;
-  font-size: 0.95rem;
-  cursor: pointer;
-  transition: all 0.25s ease;
-  border-radius: 4px;
-}
-
-.btn:hover {
-  background: #d8b77c;
-  border-color: #d8b77c;
-  transform: translateY(-1px);
-}
-
-.btn.g {
-  background: transparent;
-  color: inherit;
-}
-
-.btn.g:hover {
-  background: var(--gold-light);
-  color: var(--ink);
-}
-
-.d .btn.g:hover {
-  color: #fff;
-}
-
-.btn.active-sample {
-  background: var(--wine);
-  color: #f7ece7;
-  border-color: var(--gold);
-  box-shadow: 0 0 0 2px var(--gold);
-}
-
-.see-it-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 28px;
-  align-items: center;
-}
-
-@media (min-width: 880px) {
-  .see-it-grid {
-    grid-template-columns: 1fr 380px;
-    gap: 40px;
-  }
-}
-
-.phone-wrapper {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-}
-
-/* Realistic iPhone 15 Pro Frame Styling */
-.phone-mockup {
-  position: relative;
-  width: 320px;
-  height: 640px;
-  background: #000;
-  border-radius: 48px;
-  padding: 12px;
-  box-shadow: 
-    0 25px 60px -10px rgba(0, 0, 0, 0.45),
-    0 0 0 2px #42382c,
-    0 0 0 5px #1c1815,
-    0 0 0 6px var(--gold);
-  overflow: hidden;
-  transition: transform 0.3s ease;
-}
-
-/* Dynamic Island Notch */
-.phone-island {
-  position: absolute;
-  top: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 96px;
-  height: 24px;
-  background: #000;
-  border-radius: 20px;
-  z-index: 20;
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  padding-right: 8px;
-  pointer-events: none;
-}
-
-.phone-island::before {
-  content: "";
-  width: 10px;
-  height: 10px;
-  background: #111e38;
-  border-radius: 50%;
-  margin-right: 4px;
-}
-
-.phone-screen-container {
-  width: 100%;
-  height: 100%;
-  border-radius: 38px;
-  overflow: hidden;
-  background: #fff;
-  position: relative;
-}
-
-.phone-screen {
-  width: 100%;
-  height: 100%;
-  border: none;
-  display: block;
-}
-
-.phone-actions {
-  margin-top: 14px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 6px;
-}
-
-.open-tab-link {
-  font-size: 0.88rem;
-  font-weight: 500;
-  color: var(--gold-d);
-  text-decoration: underline;
-  cursor: pointer;
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  transition: color 0.2s;
-}
-
-.open-tab-link:hover {
-  color: var(--wine);
-}
-
-.stop-media-btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 7px;
-  padding: 8px 18px;
-  font-family: var(--sans);
-  font-size: 0.85rem;
-  font-weight: 500;
-  color: #fff;
-  background: #852233;
-  border: 1px solid var(--gold);
-  border-radius: 20px;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.18);
-  margin-bottom: 4px;
-}
-
-.stop-media-btn:hover {
-  background: #6e1927;
-  transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
-}
-
-.stop-media-btn:active {
-  transform: translateY(0);
-}
-
-.hero-logo-wrap {
-  margin-bottom: 24px;
-}
-
-.hero-logo {
-  max-width: 220px;
-  height: auto;
-  display: block;
-  object-fit: contain;
-}
-
-:focus-visible {
-  outline: 2px solid var(--gold);
-  outline-offset: 3px;
-}
-
-@media (max-width: 879px) {
-  .phone-mockup {
-    width: 260px;
-    height: 520px;
-    border-radius: 40px;
-    padding: 9px;
-  }
-  .phone-screen-container {
-    border-radius: 31px;
-  }
-  .phone-island {
-    top: 15px;
-    width: 80px;
-    height: 20px;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
-  }
-}
+.links{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+.btn{display:inline-block;padding:11px 22px;border:1px solid var(--gold);background:var(--gold);color:var(--wine);text-decoration:none;font-weight:500;font-size:.95rem}
+.btn.g{background:transparent;color:inherit}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto;scroll-snap-type:none}}
 </style>
 </head>
 <body>
-
 <div id="bar"></div>
-
-<header id="brand-header">
-  <img src="logo.png" alt="StoryInvites Logo" class="header-logo" onerror="this.style.display='none'; document.getElementById('fallback-title').style.display='block';">
-  <span id="fallback-title" style="display:none; font-family:var(--serif); font-weight:600; font-size:1.4rem; color:var(--wine);">StoryInvites</span>
-</header>
-
 <div id="count">1 / 10</div>
 
-<!-- SECTION 1: HERO -->
-<section class="s d" id="sec-0">
-  <div>
-    <div class="hero-logo-wrap">
-      <img src="logo.png" alt="StoryInvites Logo" class="hero-logo" onerror="this.onerror=null; this.src='https://placehold.co/240x80/2b1119/c9a66b?text=StoryInvites';">
-    </div>
+<!-- 1. Hero Section -->
+<section class="s d"><div>
+  <div class="hero-title-wrap">
     <h1>StoryInvites</h1>
-    <p style="font-size:1.35em; color: #f1e2dd;">Invitations your guests open, enjoy, and remember.</p>
+    <img src="logo.png" alt="StoryInvites Logo" class="hero-logo" onerror="this.style.display='none'">
   </div>
-</section>
+  <p style="font-size:1.3em;margin-top:8px">Invitations your guests open, enjoy, and remember.</p>
+</div></section>
 
-<!-- SECTION 2: WHO WE ARE -->
-<section class="s" id="sec-1">
-  <div>
-    <p class="tag">Who we are</p>
-    <h2>We turn your event into an invitation you tap, not just read.</h2>
-    <p>StoryInvites makes interactive digital invitations for weddings, debuts and birthdays. Each one is a mobile-friendly web page with your story, your music, your photos and all your event details.</p>
-    <p>Most invitations are a photo or a PDF, so the same questions keep coming back in the group chat: Where is it? What do I wear? Did you get my reply?</p>
-  </div>
-</section>
+<!-- 2. Who We Are -->
+<section class="s"><div>
+  <p class="tag">Who we are</p>
+  <h2>We turn your event into an invitation you tap, not just read.</h2>
+  <p>StoryInvites makes interactive digital invitations for weddings, debuts and birthdays. Each one is a mobile-friendly web page with your story, your music, your photos and all your event details.</p>
+  <p>Most invitations are a photo or a PDF, so the same questions keep coming back in the group chat: Where is it? What do I wear? Did you get my reply?</p>
+</div></section>
 
-<!-- SECTION 3: SEE IT FIRST -->
-<section class="s a" id="sec-2">
-  <div>
-    <div class="see-it-grid">
-      <div>
-        <p class="tag">See it first</p>
-        <h2>Open a sample on your phone.</h2>
-        <p style="font-size:0.88em; margin-bottom: 18px;" class="sub">Tap a sample button below to preview live inside the mobile frame, or open it full screen in a new browser tab.</p>
-        
-        <div class="links" id="sample-buttons">
-          <button class="btn active-sample" onclick="loadPreview('https://ws4.storyinvites.com', 'The Cinematic Couple', this)">The Cinematic Couple</button>
-          <button class="btn g" onclick="loadPreview('https://ws3.storyinvites.com', 'The Fun & Fearless', this)">The Fun &amp; Fearless</button>
-          <button class="btn g" onclick="loadPreview('https://ws7.storyinvites.com', 'The Story Told in Green', this)">The Story Told in Green</button>
-        </div>
-        <p class="sub" style="margin-top:22px; font-size:0.9em;">More samples are available at the end of this page.</p>
+<!-- 3. See It First Section -->
+<section class="s a"><div>
+  <p class="tag">See it first</p>
+  <h2>Open a sample on your phone.</h2>
+  <p style="font-size:0.9em;margin-bottom:12px">Tap a style below to experience how guests navigate it on mobile.</p>
+  
+  <div class="see-layout">
+    <div>
+      <div class="sample-btns">
+        <button class="sample-btn active" onclick="loadSample('https://ws4.storyinvites.com', this)">
+          <span>The Cinematic Couple</span>
+          <span class="badge">Wedding</span>
+        </button>
+        <button class="sample-btn" onclick="loadSample('https://ws3.storyinvites.com', this)">
+          <span>The Fun &amp; Fearless</span>
+          <span class="badge">Wedding</span>
+        </button>
+        <button class="sample-btn" onclick="loadSample('https://ws7.storyinvites.com', this)">
+          <span>The Story Told in Green</span>
+          <span class="badge">Wedding</span>
+        </button>
       </div>
 
-      <!-- Mobile Device Mockup Frame -->
-      <div class="phone-wrapper">
-        <div class="phone-mockup">
-          <div class="phone-island"></div>
-          <div class="phone-screen-container">
-            <iframe id="preview-frame" class="phone-screen" src="https://ws4.storyinvites.com" title="StoryInvites Mobile Sample Preview"></iframe>
-          </div>
-        </div>
-        <div class="phone-actions">
-          <button type="button" id="stop-media-btn" class="stop-media-btn" onclick="stopAllPlayback()" title="Stop all playing video and audio in the preview">
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><rect x="5" y="5" width="14" height="14" rx="2"></rect></svg>
-            <span>Stop Playing Videos</span>
-          </button>
-          <a id="external-link" href="https://ws4.storyinvites.com" target="_blank" rel="noopener" class="open-tab-link">
-            <span>Open <strong id="active-title">The Cinematic Couple</strong> in new tab</span>
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
-          </a>
-        </div>
+      <p class="sub" style="margin-top:20px">Tap any invitation style to interact directly with the preview screen.</p>
+      <a id="ext-link" class="ext-link" href="https://ws4.storyinvites.com" target="_blank" rel="noopener">Open full site in new tab &rarr;</a>
+    </div>
+
+    <!-- iPhone 16 Pro Max Live Interactive Frame -->
+    <div class="iphone-frame">
+      <div class="iphone-screen">
+        <div class="iphone-island"></div>
+        <iframe id="preview-frame" class="iphone-iframe" src="https://ws4.storyinvites.com" title="StoryInvites Mobile Sample Preview"></iframe>
       </div>
     </div>
   </div>
-</section>
+</div></section>
 
-<!-- SECTION 4: WHAT WE DO -->
-<section class="s d" id="sec-3">
-  <div>
-    <p class="tag">What we do</p>
-    <h2>We put everything in one link.</h2>
-    <div class="row">
-      <div><h3>Your story</h3><p>How you met and the moments that matter.</p></div>
-      <div><h3>Your music</h3><p>Up to 4 songs that play as guests scroll.</p></div>
-      <div><h3>Your photos</h3><p>Up to 10, placed inside the design.</p></div>
-      <div><h3>Event details</h3><p>Date, venue, map, dress code, entourage.</p></div>
-      <div><h3>RSVP</h3><p>Guests reply online. You get a QR code for check-in.</p></div>
-      <div><h3>Countdown and gifts</h3><p>A live countdown, plus GCash, bank or registry details.</p></div>
+<!-- 4. What We Do -->
+<section class="s d"><div>
+  <p class="tag">What we do</p>
+  <h2>We put everything in one link.</h2>
+  <div class="row">
+    <div><h3>Your story</h3><p>How you met and the moments that matter.</p></div>
+    <div><h3>Your music</h3><p>Up to 4 songs that play as guests scroll.</p></div>
+    <div><h3>Your photos</h3><p>Up to 10, placed inside the design.</p></div>
+    <div><h3>Event details</h3><p>Date, venue, map, dress code, entourage.</p></div>
+    <div><h3>RSVP</h3><p>Guests reply online. You get a QR code for check-in.</p></div>
+    <div><h3>Countdown and gifts</h3><p>A live countdown, plus GCash, bank or registry details.</p></div>
+  </div>
+</div></section>
+
+<!-- 5. What Your Guest Sees -->
+<section class="s"><div>
+  <p class="tag">What your guest sees</p>
+  <h2>It takes about a minute, and it feels personal.</h2>
+  <div class="row">
+    <div><h3>1. Tap the link</h3><p>Your names and music open the invitation.</p></div>
+    <div><h3>2. Read your story</h3><p>Your photos and memories, not a template.</p></div>
+    <div><h3>3. Get the details</h3><p>Time, place, map and dress code in one spot.</p></div>
+    <div><h3>4. Reply</h3><p>One short RSVP form. Done.</p></div>
+  </div>
+</div></section>
+
+<!-- 6. The Difference We Make -->
+<section class="s a"><div>
+  <p class="tag">The difference we make</p>
+  <h2>Less chasing for you. More feeling for them.</h2>
+  <div class="two">
+    <div>
+      <h3>For our clients</h3>
+      <ul>
+        <li>One link to send to everyone</li>
+        <li>Replies collected in one place</li>
+        <li>A QR code to confirm guest arrival</li>
+        <li>Have your own permanent event website with free domain and web hosting</li>
+        <li>Fewer repeat questions</li>
+      </ul>
+    </div>
+    <div>
+      <h3>For the guests</h3>
+      <ul>
+        <li>Everything they need in one page</li>
+        <li>Works on any phone</li>
+        <li>Music, photos and your story</li>
+        <li>A first experience of the celebration</li>
+      </ul>
     </div>
   </div>
-</section>
+</div></section>
 
-<!-- SECTION 5: WHAT YOUR GUEST SEES -->
-<section class="s" id="sec-4">
-  <div>
-    <p class="tag">What your guest sees</p>
-    <h2>It takes about a minute, and it feels personal.</h2>
-    <div class="row">
-      <div><h3>1. Tap the link</h3><p>Your names and music open the invitation.</p></div>
-      <div><h3>2. Read your story</h3><p>Your photos and memories, not a template.</p></div>
-      <div><h3>3. Get the details</h3><p>Time, place, map and dress code in one spot.</p></div>
-      <div><h3>4. Reply</h3><p>One short RSVP form. Done.</p></div>
-    </div>
-  </div>
-</section>
+<!-- 7. Made Around You -->
+<section class="s d"><div>
+  <p class="tag">Made around you</p>
+  <h2>We don&rsquo;t fit your event into a template.</h2>
+  <p>Every invitation is built around your idea: your colors, your music, your style. You tell us what you like and we shape the design around it.</p>
+  <p>Not sure where to start? Pick a style from our samples. Already have a vision? We build it from scratch.</p>
+</div></section>
 
-<!-- SECTION 6: THE DIFFERENCE WE MAKE -->
-<section class="s a" id="sec-5">
-  <div>
-    <p class="tag">The difference we make</p>
-    <h2>Less chasing for you. More feeling for them.</h2>
-    <div class="two">
-      <div><h3>For our clients</h3><ul><li>One link to send to everyone</li><li>Replies collected in one place</li><li>A QR code for smooth entrance check-in</li><li>Fewer repeat questions</li></ul></div>
-      <div><h3>For the guests</h3><ul><li>Everything they need in one page</li><li>Works on any phone</li><li>Music, photos and your story</li><li>A first look at the celebration</li></ul></div>
-    </div>
+<!-- 8. Two Ways To Start -->
+<section class="s"><div>
+  <p class="tag">Two ways to start</p>
+  <h2>Pick a design, or bring your own idea.</h2>
+  <div class="two">
+    <div class="box"><h3>Signature</h3><div class="price">&#8369;2,500</div><p class="sub">Choose one of our designs and make it yours.</p><ul><li>Your story, photos and music inside the design</li><li>Up to 2 rounds of revisions</li></ul></div>
+    <div class="box"><h3>Bespoke</h3><div class="price">&#8369;4,000</div><p class="sub">Bring an idea. We build it from scratch.</p><ul><li>Custom design made around your concept</li><li>Up to 3 rounds of revisions</li></ul></div>
   </div>
-</section>
+  <p class="sub" style="margin-top:22px">Both include up to 4 songs, up to 10 photos, RSVP with QR code, countdown, map, gift details, a shareable link, and setup and launch. Prices shown are for weddings.</p>
+</div></section>
 
-<!-- SECTION 7: MADE AROUND YOU -->
-<section class="s d" id="sec-6">
-  <div>
-    <p class="tag">Made around you</p>
-    <h2>We don&rsquo;t fit your event into a template.</h2>
-    <p>Every invitation is built around your idea: your colors, your music, your style. You tell us what you like and we shape the design around it.</p>
-    <p>Not sure where to start? Pick a style from our samples. Already have a vision? We build it from scratch.</p>
+<!-- 9. How It Works -->
+<section class="s a"><div>
+  <p class="tag">How it works</p>
+  <h2>Six simple steps.</h2>
+  <div class="row">
+    <div><h3>1. Share</h3><p>Your date, photos, schedule and music.</p></div>
+    <div><h3>2. Organize</h3><p>We sort your story and event details.</p></div>
+    <div><h3>3. Design</h3><p>We set your colors, fonts and style.</p></div>
+    <div><h3>4. Preview</h3><p>You open your first draft live.</p></div>
+    <div><h3>5. Adjust</h3><p>We fix and polish what you want changed.</p></div>
+    <div><h3>6. Launch</h3><p>You get your link and RSVP QR code.</p></div>
   </div>
-</section>
+</div></section>
 
-<!-- SECTION 8: TWO WAYS TO START -->
-<section class="s" id="sec-7">
-  <div>
-    <p class="tag">Two ways to start</p>
-    <h2>Pick a design, or bring your own idea.</h2>
-    <div class="two">
-      <div class="box"><h3>Signature</h3><div class="price">&#8369;2,500</div><p class="sub">Choose one of our designs and make it yours.</p><ul><li>Your story, photos and music inside the design</li><li>Up to 2 rounds of revisions</li></ul></div>
-      <div class="box"><h3>Bespoke</h3><div class="price">&#8369;4,000</div><p class="sub">Bring an idea. We build it from scratch.</p><ul><li>Custom design made around your concept</li><li>Up to 3 rounds of revisions</li></ul></div>
-    </div>
-    <p class="sub" style="margin-top:22px">Both include up to 4 songs, up to 10 photos, RSVP with QR code, countdown, map, gift details, a shareable link, and setup and launch. Prices shown are for weddings.</p>
+<!-- 10. Next Step / Links -->
+<section class="s d"><div>
+  <p class="tag">Next step</p>
+  <h2>Want one for your event?</h2>
+  <p>Message us to check your date and tell us your idea.</p>
+  <div class="links">
+    <a class="btn" href="viber://chat?number=%2B639260593086">Message on Viber</a>
+    <a class="btn g" href="mailto:storyinvites.com@gmail.com?subject=StoryInvites%20Inquiry">Email us</a>
+    <a class="btn g" href="https://facebook.com/storyinvites" target="_blank" rel="noopener">Facebook</a>
   </div>
-</section>
 
-<!-- SECTION 9: HOW IT WORKS -->
-<section class="s a" id="sec-8">
-  <div>
-    <p class="tag">How it works</p>
-    <h2>Six simple steps.</h2>
-    <div class="row">
-      <div><h3>1. Share</h3><p>Your date, photos, schedule and music.</p></div>
-      <div><h3>2. Organize</h3><p>We sort your story and event details.</p></div>
-      <div><h3>3. Design</h3><p>We set your colors, fonts and style.</p></div>
-      <div><h3>4. Preview</h3><p>You open your first draft live.</p></div>
-      <div><h3>5. Adjust</h3><p>We fix and polish what you want changed.</p></div>
-      <div><h3>6. Launch</h3><p>You get your link and RSVP QR code.</p></div>
-    </div>
+  <p class="tag" style="margin-top:40px">Wedding samples</p>
+  <div class="links">
+    <a class="btn g" href="https://ws1.storyinvites.com" target="_blank" rel="noopener">The Timeless Love Story</a>
+    <a class="btn g" href="https://ws2.storyinvites.com" target="_blank" rel="noopener">The Classic with a Twist</a>
+    <a class="btn g" href="https://ws3.storyinvites.com" target="_blank" rel="noopener">The Fun &amp; Fearless Couple</a>
+    <a class="btn g" href="https://ws4.storyinvites.com" target="_blank" rel="noopener">The Cinematic Couple</a>
+    <a class="btn g" href="https://ws5.storyinvites.com" target="_blank" rel="noopener">The Storytellers</a>
+    <a class="btn g" href="https://ws6.storyinvites.com" target="_blank" rel="noopener">The Filipino Modern</a>
+    <a class="btn g" href="https://ws7.storyinvites.com" target="_blank" rel="noopener">The Story Told in Green</a>
   </div>
-</section>
 
-<!-- SECTION 10: NEXT STEP & SAMPLES DIRECTORY -->
-<section class="s d" id="sec-9">
-  <div>
-    <p class="tag">Next step</p>
-    <h2>Want one for your event?</h2>
-    <p>Message us to check your date and tell us your idea.</p>
-    <div class="links">
-      <a class="btn" href="viber://chat?number=%2B639260593086">Message on Viber</a>
-      <a class="btn g" href="mailto:storyinvites.com@gmail.com?subject=StoryInvites%20Inquiry">Email us</a>
-      <a class="btn g" href="https://facebook.com/storyinvites" target="_blank" rel="noopener">Facebook</a>
-    </div>
-    
-    <p class="tag" style="margin-top:36px; font-size:1.6rem">Wedding samples</p>
-    <div class="links">
-      <a class="btn g" href="https://ws1.storyinvites.com" target="_blank" rel="noopener">The Timeless Love Story</a>
-      <a class="btn g" href="https://ws2.storyinvites.com" target="_blank" rel="noopener">The Classic with a Twist</a>
-      <a class="btn g" href="https://ws3.storyinvites.com" target="_blank" rel="noopener">The Fun &amp; Fearless Couple</a>
-      <a class="btn g" href="https://ws4.storyinvites.com" target="_blank" rel="noopener">The Cinematic Couple</a>
-      <a class="btn g" href="https://ws5.storyinvites.com" target="_blank" rel="noopener">The Storytellers</a>
-      <a class="btn g" href="https://ws6.storyinvites.com" target="_blank" rel="noopener">The Filipino Modern</a>
-      <a class="btn g" href="https://ws7.storyinvites.com" target="_blank" rel="noopener">The Story Told in Green</a>
-    </div>
-    
-    <p class="tag" style="margin-top:24px; font-size:1.6rem">Debut samples</p>
-    <div class="links">
-      <a class="btn g" href="https://ds1.storyinvites.com" target="_blank" rel="noopener">The Grand Debutante</a>
-      <a class="btn g" href="https://ds2.storyinvites.com" target="_blank" rel="noopener">The Enchanted &amp; Themed Debut</a>
-      <a class="btn g" href="https://ds3.storyinvites.com" target="_blank" rel="noopener">The Personal Touch</a>
-    </div>
-    <p class="sub" style="margin-top:8px">Birthday invitations are made one by one to match your theme.</p>
-    <p class="sub" style="margin-top:20px; font-size:0.9em">+63 926 059 3086 &nbsp;/&nbsp; +63 975 712 3945<br>storyinvites.com@gmail.com &nbsp;/&nbsp; storyinvites.com</p>
+  <p class="tag" style="margin-top:28px">Debut samples</p>
+  <div class="links">
+    <a class="btn g" href="https://ds1.storyinvites.com" target="_blank" rel="noopener">The Grand Debutante</a>
+    <a class="btn g" href="https://ds2.storyinvites.com" target="_blank" rel="noopener">The Enchanted &amp; Themed Debut</a>
+    <a class="btn g" href="https://ds3.storyinvites.com" target="_blank" rel="noopener">The Personal Touch</a>
   </div>
-</section>
+
+  <p class="sub" style="margin-top:8px">Birthday invitations are made one by one to match your theme.</p>
+  <p class="sub" style="margin-top:24px">+63 926 059 3086 &nbsp;/&nbsp; +63 975 712 3945<br>storyinvites.com@gmail.com &nbsp;/&nbsp; storyinvites.com</p>
+</div></section>
 
 <script>
-const S = document.querySelectorAll('.s');
-const bar = document.getElementById('bar');
-const cnt = document.getElementById('count');
-let currentPreviewUrl = 'https://ws4.storyinvites.com';
+const S=document.querySelectorAll('.s'),bar=document.getElementById('bar'),cnt=document.getElementById('count');
 
-/* Update top scroll progress bar and section counter */
-function upd() {
-  const h = document.documentElement;
-  const m = h.scrollHeight - innerHeight;
-  bar.style.width = (m > 0 ? (window.scrollY / m) * 100 : 0) + '%';
-  
-  let n = 0;
-  S.forEach((s, i) => {
-    const rect = s.getBoundingClientRect();
-    if (rect.top <= innerHeight * 0.5) {
-      n = i;
-    }
+function upd(){
+  const h=document.documentElement,m=h.scrollHeight-innerHeight;
+  bar.style.width=(m>0?scrollY/m*100:0)+'%';
+  let n=0;
+  S.forEach((s,i)=>{
+    if(s.getBoundingClientRect().top < innerHeight*.5) n=i;
   });
-  
-  cnt.textContent = (n + 1) + ' / ' + S.length;
+  cnt.textContent=(n+1)+' / '+S.length;
 }
 
-/* Stops all video and audio playback across the page and inside the preview */
-function stopAllPlayback() {
-  // 1. Pause any HTML5 video and audio elements on the host document
-  document.querySelectorAll('video, audio').forEach(media => {
-    try {
-      media.pause();
-      media.currentTime = 0;
-    } catch (e) {}
-  });
-
-  // 2. Stop audio/video playing inside the sample preview iframe
-  const frame = document.getElementById('preview-frame');
-  const btn = document.getElementById('stop-media-btn');
-
-  if (frame) {
-    try {
-      // Send standard player commands in case embedded players are active
-      frame.contentWindow.postMessage('{"event":"command","func":"stopVideo","args":""}', '*');
-      frame.contentWindow.postMessage('{"event":"command","func":"pauseVideo","args":""}', '*');
-      frame.contentWindow.postMessage({ method: 'pause' }, '*');
-      frame.contentWindow.postMessage({ type: 'pause' }, '*');
-    } catch (e) {}
-
-    try {
-      if (frame.contentDocument) {
-        frame.contentDocument.querySelectorAll('video, audio').forEach(v => {
-          v.pause();
-          v.currentTime = 0;
-        });
-      }
-    } catch (e) {}
-
-    // Resets the iframe stream cleanly to ensure audio/video is cut off
-    const activeUrl = currentPreviewUrl || frame.src;
-    frame.src = 'about:blank';
-    setTimeout(() => {
-      frame.src = activeUrl;
-    }, 100);
-  }
-
-  // Provide interactive visual confirmation on the button
-  if (btn) {
-    const originalContent = btn.innerHTML;
-    btn.innerHTML = '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg><span>Stopped</span>';
-    btn.style.background = '#4a7c59';
-    btn.style.borderColor = '#4a7c59';
-    setTimeout(() => {
-      btn.innerHTML = originalContent;
-      btn.style.background = '';
-      btn.style.borderColor = '';
-    }, 1400);
-  }
+function loadSample(url, btn){
+  document.getElementById('preview-frame').src = url;
+  document.getElementById('ext-link').href = url;
+  document.querySelectorAll('.sample-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
 }
 
-/* Mobile Frame Preview Switcher */
-function loadPreview(url, title, element) {
-  currentPreviewUrl = url;
-  const frame = document.getElementById('preview-frame');
-  const extLink = document.getElementById('external-link');
-  const activeTitle = document.getElementById('active-title');
-  const buttons = document.querySelectorAll('#sample-buttons .btn');
-
-  frame.src = url;
-  extLink.href = url;
-  activeTitle.textContent = title;
-
-  buttons.forEach(b => {
-    b.classList.remove('active-sample');
-    b.classList.add('g');
-  });
-
-  element.classList.remove('g');
-  element.classList.add('active-sample');
-}
-
-window.addEventListener('scroll', upd, { passive: true });
-window.addEventListener('resize', upd);
+addEventListener('scroll',upd,{passive:true});
+addEventListener('resize',upd);
 upd();
 </script>
 </body>
